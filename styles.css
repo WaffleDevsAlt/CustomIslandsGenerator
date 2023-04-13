@@ -1,0 +1,79 @@
+body {
+  margin-top: 70px;
+  width: calc(100vw/2);
+  height: calc(100vw/2);
+  border: solid 5px #222;
+  position: center;
+  vertical-align: center;
+  background-color: black;
+  text-align: center;
+  font-family: 'Readex Pro', sans-serif;
+  max-width: 640px;
+  max-height: 640px;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666666;
+  box-sizing: border-box;
+  float: left;
+  width: calc(100vw/20);
+  height: calc((100vw)/20);
+  padding: 0;
+  max-width: 80px;
+  max-height: 80px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html {
+  margin: auto;
+  display: table;
+  color: white;
+  background-color: black;
+}
+
+.block {
+  font-size: min(calc(100vw/6), 10px);
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}
+
+#result {
+  font-family: 'Times', serif;
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#reset {
+  position: absolute;
+  left: calc(100vw/2 - 25px);
+  top: calc(100vw/2 + 95px);
+  top: min(calc(100vw/2 + 105px), 745px);
+}
+
+.ie {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+button {
+  background-color: #333;
+  border: 2px solid #888;
+  color: #fff;
+}
+
+.selc {
+  background-color: #ccc;
+  color: #333;
+}
