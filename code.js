@@ -73,7 +73,7 @@ $('#reset').click(function(){
 
 function exportMap(){
 	let layoutName = $("#layoutName").val()
-	let catagorey = $("#catagorey").val()
+	let category = $("#category").val()
   let tiles = "";
   let notches = "";
   let lane = 0;
@@ -87,13 +87,28 @@ function exportMap(){
     $('#' + (i+1)).html(`${x}${y}`)
     
     if(board[i][0] == 1) tiles += `${x},${y};`
-    if(board[i][0] == 2) notches += `${x},${y},${board[i][1]};`
+    if(board[i][0] == 2) {
+    	switch(board[i][1]) {
+      	case 1: // NoRotate
+          notches += `${x-1},${y},${board[i][1]};`
+          break;
+        case 2: // RotateCW
+          notches += `${x},${y-1},${board[i][1]};`
+          break;
+        case 3: // Rotate180
+          notches += `${x+1},${y},${board[i][1]};`
+          break;
+        case 4: // Top
+          notches += `${x},${y+1},${board[i][1]};`
+          break;
+      }
+    }
   }
 
-	const exportedBoard = `${layoutName}|${catagorey}|${tiles}|${notches}`
+	const exportedBoard = `${layoutName}|${category}|${tiles}|${notches}`
   
   if(layoutName == "") return "LayoutName is empty."
-  if(catagorey == "") return "Catagorey is empty."
+  if(category  == "") return "Category  is empty."
   if(tiles == "") return "Tiles are empty."
   if(notches == "") return "Notches are empty."
   
@@ -123,11 +138,13 @@ function exportMap(){
 function importMap(map){
 	let split = map.split("|")
 	let layoutName = split[0]
-	let catagorey = split[1]
+	let category  = split[1]
   let tiles = split[2].split(";")
   if(tiles[tiles.length-1] == "") tiles.pop()
   let notches = split[3].split(";")
   if(notches[notches.length-1] == "") notches.pop()
+  // Above is translated!
+  
   let lane = 0;
   for (let i = 0; i < tiles.length; i++) {
     let [x,y] = tiles[i].split(",")
@@ -140,7 +157,7 @@ function importMap(map){
     board[parseInt(`${y}${x}`)] = [2,parseInt(rot)]
   }
   $("#layoutName").val(layoutName)
-  $("#catagorey").val(catagorey)
+  $("#category ").val(category )
   console.log(board)
   drawBoard()
 }
