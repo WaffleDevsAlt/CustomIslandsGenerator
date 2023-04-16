@@ -1,6 +1,6 @@
 # CustomIslandsGenerator
 **Note:** Saving a savegame with a modded island down forever breaks your savegame. Create a backup before doing anything with this mod.
-##How to use:
+## How to use:
   1. Download the Shapez 2 mod from the discord. [Link](https://example.com/)
   2. Extract the zip.
   3. Locate your game's root and drag the zip's contents into it.
